@@ -5,7 +5,7 @@ class Like extends Component {
     let likeClass = "fa fa-heart";
     likeClass += !this.props.isLiked ? "-o" : "";
 
-    return <i class={likeClass} onClick={this.props.onClick}></i>;
+    return <i style={{cursor:"pointer"}} className={likeClass} onClick={this.props.onClick}></i>;
   }
 }
 
