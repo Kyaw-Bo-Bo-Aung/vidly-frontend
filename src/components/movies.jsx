@@ -5,7 +5,7 @@ import MovieTable from "./movieTable";
 
 class Movies extends Component {
   render() {
-    const { movies, pageSize, currentPage, sortColumn } = this.props;
+    const { movies, pageSize, currentPage, sortColumn, onLike, onDelete, onSort, onPagination } = this.props;
     const { length: count } = movies;
 
     if (count === 0) return <p>There is no movies in database!</p>;
@@ -19,15 +19,15 @@ class Movies extends Component {
           <MovieTable
             sortColumn={sortColumn}
             movieList={movieList}
-            onLike={(movie) => this.props.onLike(movie)}
-            onDelete={(movieId) => this.props.onDelete(movieId)}
-            onSort={(path) => this.props.onSort(path)}
+            onLike={(movie) => onLike(movie)}
+            onDelete={(movieId) => onDelete(movieId)}
+            onSort={(column) => onSort(column)}
           />
           <Pagination
             total={count}
             pageSize={pageSize}
             currentPage={currentPage}
-            onClick={(page) => this.props.onPagination(page)}
+            onClick={(page) => onPagination(page)}
           />
         </>
       );
