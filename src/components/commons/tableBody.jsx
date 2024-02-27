@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import Like from "./like";
+import React from "react";
 import _ from "lodash";
 
 const TableBody = ({data, columns}) => {
